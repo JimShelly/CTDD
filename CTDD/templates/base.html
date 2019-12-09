@@ -1,0 +1,161 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- SITE TITTLE -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% page_attribute 'meta_description' %}"
+    <title>CTDD - {% page_attribute 'page_title' %}</title>
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/selectbox/select_option1.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/slick/slick.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'plugins/slick/slick-theme.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'plugins/prismjs/prism.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/fancybox/jquery.fancybox.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/fancybox/fancyMorph.css' %}" rel="stylesheet" />
+    <link href="{% static 'plugins/selectbox/select_option1.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/thin-line-icons/css/thin-line-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/isotope/isotope.min.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/animate/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/daterangepicker/css/daterangepicker.css' %}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link href="{% static 'css/biznex.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/default.css" id="option_color">
+
+    <!-- FAVICON -->
+    <link href="{% static 'img/favicon.png' %}" rel="shortcut icon">
+    {% render_block "css" %}
+</head>
+
+<body id="body" class="home-classic boxed-menu">
+    {% cms_toolbar%}
+    <!-- Preloader -->
+    <div id="preloader" class="smooth-loader-wrapper">
+        <div class="preloader_container">
+            <div id="loader">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-sticky-header-overlay"></div>
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="topbar-content">
+                        <i class="fa fa-phone" aria-hidden="true"></i> 716-845-5702
+                    </div>
+                    <div class="topbar-content">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:support@gog.org">support@gog.org</a>
+                    </div>
+                    <div class="topbar-content">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Elm & Carlton Streets, Buffalo, New York</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-right">
+                    <a target="_blank" href="https://intranet.ctdd.org/login.action?os_destination=%2Findex.action&permissionViolation=true" class="btn btn-primary btn-default bold">CTDD Intranet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TOPBAR ENDS-->
+
+    <!-- HEADER -->
+    <header id="pageTop" class="header">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-md main-nav bg-dark-navy">
+            <div class="container">
+                <button class="navbar-toggler navbar-toggler-right">
+                    <span class="navbar-toggler-icon"></i></span>
+                </button>
+                <div class="navbar-brand">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo"> Clinical Trial Development Division
+                </div>
+                <ul class="navbar-nav right">
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+            </div>
+            <!-- header search ends-->
+        </nav>
+    </header>
+
+    <div class="container">
+    {% block content %} {% endblock content %}
+    </div>
+    
+    <footer class="footer footer-classic bg-navy">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="footer-text">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="links">
+                        <h3 style="color: #4ac8ed">Links</h3>
+                        <ul class="">
+                            {% show_menu 0 100 100 100 "menu\footermenu.html" %}
+                            <li><a href="page-copywrite.html">Copyright ©</a></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="location">
+                        <h3 style="color: #4ac8ed">Location</h3>
+                        <ul>
+                            <li><i class="fa fa-home"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Elm & Carlton Streets, Buffalo, NY 14263-0001</li>
+                            <li><i class="fa fa-phone"></i>716-845-5702</li>
+                            <li><i class="fa fa-envelope"></i> <a href="mailto"> support@gog.org </a></li>
+                            <li><i class="fas fa-address-book"></i><a href="page-services.html">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-mdl-6">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{% static '/img/logo-scaled.png' %}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery/jquery-migrate-3.0.0.min.j' %}s"></script>
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'plugins/selectbox/jquery.selectbox-0.1.3.min.js' %}"></script>
+    <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+    <script src="{% static 'plugins/chartjs/chart.min.js' %}"></script>
+    <script src="{% static 'plugins/circle-progress/jquery.appear.js' %}"></script>
+    <script src="{% static 'plugins/isotope/isotope.min.js' %}"></script>
+    <script src="{% static 'plugins/lazyload/lazyload.min.js' %}"></script>
+    <script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'plugins/fancybox/fancyMorph.js' %}"></script>
+    <script src="{% static 'plugins/counterUp/waypoint.js' %}"></script>
+    <script src="{% static 'plugins/counterUp/jquery.counterup.js' %}"></script>
+    <script src="{% static 'plugins/smoothscroll/smooth-scroll.polyfills.min.j' %}s"></script>
+    <script src="{% static 'plugins/syotimer/jquery.syotimer.min.j' %}s"></script>
+    <script src="{% static 'plugins/daterangepicker/js/moment.min.js' %}"></script>
+    <script src="{% static 'plugins/daterangepicker/js/daterangepicker.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU79W1lu5f6PIiuMqNfT1C6M0e_lq1ECY"></script>
+    <script src="{% static 'js/biznex.js' %}"></script>
+    {% render_block "js" %}
+</body>
+
+</html>
